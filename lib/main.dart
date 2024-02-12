@@ -25,12 +25,18 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String? name;
+    DateTime? birthday;
+
     return SingleChildScrollView(
       child: Column(
         children: [
           Padding(
             padding: const EdgeInsets.all(50.0),
             child: TextField(
+              onChanged: (newText) {
+                name = newText;
+              },
               decoration: InputDecoration(
                   labelText: '名前',
                   hintText: '名前',
@@ -38,8 +44,8 @@ class Home extends StatelessWidget {
             ),
           ),
           ElevatedButton(
-            onPressed: () {
-              showDatePicker(
+            onPressed: () async {
+              birthday = await showDatePicker(
                   context: context,
                   initialDate: DateTime(DateTime.now().year - 10),
                   firstDate: DateTime(DateTime.now().year - 100),
@@ -49,7 +55,10 @@ class Home extends StatelessWidget {
           ),
           ElevatedButton(
               onPressed: () {
-                print("ボタンを押しました");
+                if (name != null && birthday != null) {
+                  print(name);
+                  print(DateTime.now().difference(birthday!).inDays);
+                }
               },
               child: Text("生まれてから何日目？"))
         ],
