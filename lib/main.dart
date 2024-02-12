@@ -14,7 +14,12 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: [
-            TextField(),
+            TextField(
+              decoration: InputDecoration(
+                  labelText: '名前',
+                  hintText: '名前',
+                  icon: Icon(Icons.account_circle)),
+            ),
             DatePickerDialog(
                 initialDate: DateTime(DateTime.now().year - 10),
                 firstDate: DateTime(DateTime.now().year - 100),
