@@ -37,10 +37,16 @@ class Home extends StatelessWidget {
                   icon: Icon(Icons.account_circle)),
             ),
           ),
-          DatePickerDialog(
-              initialDate: DateTime(DateTime.now().year - 10),
-              firstDate: DateTime(DateTime.now().year - 100),
-              lastDate: DateTime(DateTime.now().year)),
+          ElevatedButton(
+            onPressed: () {
+              showDatePicker(
+                  context: context,
+                  initialDate: DateTime(DateTime.now().year - 10),
+                  firstDate: DateTime(DateTime.now().year - 100),
+                  lastDate: DateTime(DateTime.now().year));
+            },
+            child: new Text('誕生日選択'),
+          ),
           ElevatedButton(
               onPressed: () {
                 print("ボタンを押しました");
