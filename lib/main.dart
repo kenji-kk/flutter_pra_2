@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pra_2/result.dart';
 
 void main() {
   runApp(MyApp());
@@ -56,6 +57,8 @@ class Home extends StatelessWidget {
           ElevatedButton(
               onPressed: () {
                 if (name != null && birthday != null) {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Result()));
                   print(name);
                   print(DateTime.now().difference(birthday!).inDays);
                 }
