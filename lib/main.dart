@@ -57,8 +57,14 @@ class Home extends StatelessWidget {
           ElevatedButton(
               onPressed: () {
                 if (name != null && birthday != null) {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Result()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Result(
+                              name: name!,
+                              dayFromBirthday: DateTime.now()
+                                  .difference(birthday!)
+                                  .inDays)));
                   print(name);
                   print(DateTime.now().difference(birthday!).inDays);
                 }
